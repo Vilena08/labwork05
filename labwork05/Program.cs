@@ -35,7 +35,7 @@ class Program {
         }
       }
 
-      content = Regex.Replace(content, @"\((\d{3})\)\s*(\d{3})-(\d{2})-(\d{2})", "+380 $1 $2 $3 $4");
+      content = Regex.Replace(content, @"\(0(\d{2})\) (\d{3})-(\d{2})-(\d{2})", "+380 $1 $2 $3 $4");
 
       if (content != originalContent) {
         StreamWriter writer = new StreamWriter(filePath);
@@ -48,6 +48,7 @@ class Program {
         Console.WriteLine(" No changes needed ");
       }
     }
+
     Console.WriteLine(" \nDone ");
     Console.ReadKey();
   }
