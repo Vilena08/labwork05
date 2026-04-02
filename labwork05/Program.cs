@@ -9,7 +9,7 @@ class Program {
     mistakeWords.Add("привет", new List<string> { "пирвет", "превет", "привт" });
     mistakeWords.Add("пока", new List<string> { "пака", "поко" });
 
-    Console.WriteLine(" Enter folder path: ");
+    Console.WriteLine(" Enter folder path : ");
     string directory = Console.ReadLine();
     string[] files = Directory.GetFiles(directory, "*.txt");
 
