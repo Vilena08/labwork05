@@ -9,19 +9,20 @@ class Program {
     mistakeWords.Add("привет", new List<string> { "пирвет", "превет", "привт" });
     mistakeWords.Add("пока", new List<string> { "пака", "поко" });
 
-    string directory = @"C:\Users\user\Desktop\";
+    Console.WriteLine("Enter folder path:");
+    string directory = Console.ReadLine();
     string[] files = Directory.GetFiles(directory, "*.txt");
 
-    Console.WriteLine("Найдено файлов: {0}", files.Length);
+    Console.WriteLine(" Files found: {0} ", files.Length);
 
     foreach (string filePath in files) {
-      Console.WriteLine("\nОбработка: {0}", filePath);
+      Console.WriteLine(" \nProcessing: {0} ", filePath);
 
       StreamReader reader = new StreamReader(filePath);
       string content = reader.ReadToEnd();
       reader.Close();
 
-      Console.WriteLine("Было:\n{0}", content);
+      Console.WriteLine(" Before:\n{0} ", content);
 
       string originalContent = content;
 
@@ -41,14 +42,13 @@ class Program {
         writer.Write(content);
         writer.Close();
 
-        Console.WriteLine("Стало:\n{0}", content);
+        Console.WriteLine(" After:\n{0} ", content);
       }
       else {
-        Console.WriteLine("Изменений не требуется");
+        Console.WriteLine(" No changes needed ");
       }
     }
-
-    Console.WriteLine("\nГотово");
+    Console.WriteLine(" \nDone ");
     Console.ReadKey();
   }
 }
